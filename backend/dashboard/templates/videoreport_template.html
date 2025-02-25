@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Cheating Report for {{ student.username }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .report-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .activity-group {
+            margin-bottom: 20px;
+        }
+        .activity-group h2 {
+            color: #333;
+            text-align: left;
+        }
+        .activity {
+            margin: 10px 0;
+        }
+        .activity img {
+            min-width: 640px;
+            max-height: 480px;
+            height: auto;
+            display: block;
+        }
+        .timestamp {
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="report-header">
+        <h1>Proctoring Report</h1>
+        <p><strong>Student:</strong> {{ student.username }}</p>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+        <p><strong>Report Date:</strong> {{ timestamp|date:"F d, Y" }}</p>
+    </div>
+
+    <div class="report-body">
+        {% if grouped_activities %}
+    {% for activity_type, activities in grouped_activities.items %}
+    <div class="activity-group">
+        <h2>{{ activity_type }}</h2>
+        {% for activity in activities %}
+        <div class="activity">
+            <p><strong>Detected on:</strong> {{ activity.timestamp|date:"Y-m-d H:i:s" }}</p>
+            <img src={% static 'suspicious_activities' %}/{{student.email}}/{{activity.screenshot}}>
+            <p class="timestamp">{{ activity.timestamp|date:"H:i:s" }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+{% else %}
+    <p>No suspicious activities found for this student.</p>
+{% endif %}
+
+    </div>
+
+</body>
+</html>

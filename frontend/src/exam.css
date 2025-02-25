@@ -1,0 +1,204 @@
+.App {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Timer Panel */
+  .timer {
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    z-index: 1000;
+  }
+  
+  /* Camera Feeds */
+  .camera-feed {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 220px;
+    height: 165px;
+    border-radius: 10px;
+    border: 3px solid #2563eb;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .camera-feed-hidden {
+    display: none;
+  }
+  
+  .camera-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1500;
+    font-size: 1.2rem;
+  }
+  
+  /* Modals & Alerts */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1600;
+  }
+  
+  .modal {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+  }
+  
+  .warning-text {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  /* Buttons */
+  .modal-buttons button,
+  .fullscreen-button,
+  .navigation-buttons button {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .fullscreen-button {
+    background: #2563eb;
+    color: #ffffff;
+  }
+  
+  .fullscreen-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+  }
+  
+  .modal-buttons button:first-child {
+    background: #2563eb;
+    color: #fff;
+  }
+  
+  .modal-buttons button:last-child {
+    background: #e5e7eb;
+    color: #374151;
+  }
+  
+  .modal-buttons button:hover {
+    transform: translateY(-1px);
+  }
+  
+  /* Question & Answers */
+  .answers {
+    display: block;
+    background: #f9fafb;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+  
+  .answers:hover {
+    background: #f3f4f6;
+  }
+  
+  .answers label {
+    font-size: 1rem;
+    color: #1f2937;
+  }
+  
+  .navigation-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    border-top: 2px solid #e5e7eb;
+    padding-top: 1rem;
+  }
+  
+  button[type="submit"] {
+    background: #2563eb;
+    color: #ffffff;
+  }
+  
+  button[type="button"] {
+    background: #e5e7eb;
+    color: #374151;
+  }
+  
+  /* Results */
+  .results {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .results h2 {
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+  
+  .results p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .results span {
+    color: #2563eb;
+    font-weight: 600;
+  }
+  
+  @media (max-width: 768px) {
+    .App {
+      margin: 1rem;
+      padding: 1.5rem;
+    }
+  
+    .camera-feed {
+      width: 160px;
+      height: 120px;
+    }
+  
+    .navigation-buttons {
+      flex-direction: column;
+    }
+  
+    .navigation-buttons button {
+      width: 100%;
+    }
+  }

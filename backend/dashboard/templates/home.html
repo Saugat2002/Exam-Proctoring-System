@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/admin.css" %}">
+    <title>FuseNirikshak - Admin Dashboard</title>
+</head>
+<body>
+        <!-- SIDEBAR -->
+        <input type="checkbox" class="menu__checkbox" id="sideview-crawl">
+        <div class="side-view">
+            <nav class="admin-view__menu">
+                <div class="admin-view__header">
+                    <h3 class="company-name">
+                        <span>FuseNirikshak</span>
+                    </h3>
+                    <div class="menu-icon">
+                        <label for="sideview-crawl" class="menu-bar">
+                                {% comment %} <use xlink:href='{% static "images/hamburger.svg"%}'></use> {% endcomment %}
+                                <img src='{% static "images/hamburger.svg"%}'>
+                        </label>
+                    </div>
+                </div>
+                <div class="user-profile">
+                    <img src="{% static "images/dash_icon.png"%}" alt="admin-picture">
+                    <h3 class="admin-name">
+                        <span>Admin</span>
+                    </h3>
+                </div>
+                <ul class="side-nav">
+                    <li class="side-nav__active">
+                        <a href="http://127.0.0.1:8000/">
+                            <svg>
+                                <use xlink:href='./icons.svg#icon-home'></use>
+                            </svg>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__exams">
+                        <a href="http://127.0.0.1:8000/exams">
+                            <svg>
+                                <use xlink:href='./icons.svg#icon-package'></use>
+                            </svg>
+                            <span>Exams</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__users">
+                        <a href="http://127.0.0.1:8000/students">
+                            <svg>
+                                <use xlink:href='./icons.svg#icon-user'></use>
+                            </svg>
+                            <span>Students</span>
+                        </a>
+                    </li>
+        
+                    <li class="side-nav__account">
+                        <a href="http://127.0.0.1:8000/logout">
+                            <svg>
+                                <use xlink:href='./icons.svg#icon-settings'></use>
+                            </svg>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <footer class="footer">
+                <p>&copy; 2024 FuseNirikshak </p>
+            </footer>
+        </div>
+
+         <!-- MAIN CONTENT -->
+        <main class="main main-content">
+            {% block content %}
+            <!-- Child templates will insert content here -->
+            {% endblock %}
+        </main>
+    
+</body>
+</html>

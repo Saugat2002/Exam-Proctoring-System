@@ -1,0 +1,33 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div class="header">
+    <h1>Welcome back, Admin</h1>
+    <p id="tagline">Seamless Exam Security, Right in Your Browser.</p>
+</div>
+
+<div class="overview-cards">
+    <div class="card exam-card">
+        <div class="title">
+            <h2>Exams</h2>
+        </div>
+        <span class="content exam-content">
+            <div class="number">
+                <h4>{{ exams }}</h4>
+            </div>
+        </span>
+    </div>
+    <div class="card user-card">
+        <div class="title">
+            <h2>Students</h2>
+        </div>
+        <span class="content user-content">
+            <div class="number">
+                <h4>{{ students }}</h4>
+            </div>
+        </span>
+    </div>
+    
+</div>
+
+{% endblock %}

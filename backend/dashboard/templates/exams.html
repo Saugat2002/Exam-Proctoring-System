@@ -1,0 +1,38 @@
+<!-- exam.html -->
+{% extends 'home.html' %}
+
+
+{% block content %}
+    <div class="header">
+        <h1>Exams</h1>
+    </div>
+
+    <div class="exam--new">
+        <a>
+            <button class="btn btn--new">New Exam</button>
+        </a>
+    </div>
+
+    <div class="container exam-container">
+        <div class="exams">
+            <div class="exams-keys">
+                <div class="keys exam-id">ID</div>
+                <div class="keys exam-name">Name</div>
+                <div class="keys exam-description">Total Marks</div>
+                <div class="keys exam-price">Pass Marks</div>
+                <div class="keys exam-image">Duration (minutes)</div>
+                <div class="keys exam-action_value">Date</div>
+            </div>
+            {% for exam in exams %}
+            <div class="exams-values">
+                <div class="values exam-id_value">{{ exam.id }}</div>
+                <div class="values exam-name_value">{{ exam.exam_name }}</div>
+                <div class="values exam-description_value">{{ exam.total_marks }}</div>
+                <div class="values exam-price_value">{{ exam.passing_marks }}</div>
+                <div class="values exam-image_value">{{ exam.duration }}</div>
+                <div class="values exam-action_value">{{ exam.created_at }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

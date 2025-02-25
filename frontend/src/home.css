@@ -1,0 +1,40 @@
+.container {
+    display: flex; 
+    height: 100vh; 
+}
+
+.left-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.left-image img {
+  width: 100%; 
+  height: 70%; 
+  object-fit: contain;
+}
+
+.right-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #f0a500;
+  text-decoration: none;
+}
+span {
+  color: #28a745;
+}

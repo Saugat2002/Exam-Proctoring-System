@@ -1,0 +1,20 @@
+Speaker SPEAKER_00:
+  Start: 30.74s, End: 33.76s
+  Transcript: Hey, come to Discord. Let's discuss the answers.
+
+Speaker SPEAKER_00:
+  Start: 36.99s, End: 37.97s
+  Transcript:  Can you help me cheat?
+
+Speaker SPEAKER_00:
+  Start: 41.91s, End: 43.91s
+  Transcript:  What is the answer of question number 1?
+
+Speaker SPEAKER_00:
+  Start: 48.29s, End: 50.54s
+  Transcript:  I think I found the answer in ChatGPT.
+
+Speaker SPEAKER_00:
+  Start: 54.60s, End: 55.14s
+  Transcript:  Thank you.
+

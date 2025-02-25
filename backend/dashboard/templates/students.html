@@ -1,0 +1,47 @@
+<!-- exam.html -->
+{% extends 'home.html' %}
+
+{% block content %}
+    <div class="header">
+        <h1>Students</h1>
+    </div>
+
+    <div class="container user-container">
+        <div class="users">
+            <div class="users-keys">
+                <div class="keys exam-id">ID</div>
+                <div class="keys exam-name">Name</div>
+                <div class="keys exam-description">Exam Given</div>
+                <div class="keys exam-description">Marks Obtained</div>
+                <div class="keys exam-price">Video Report</div>
+                <div class="keys exam-image">Audio Report</div>
+                {% comment %} <div class="keys exam-id">Suspicious</div> {% endcomment %}
+                <div class="keys exam-id">Generate</div>
+            </div>
+            {% for student in students %}
+            <div class="users-values">
+                <div class="values exam-id_value">{{ student.id }}</div>
+                <div class="values exam-name_value">{{ student.username }}</div>
+                <div class="values exam-description_value">{{ student.exam_given }}</div>
+                <div class="values exam-description_value">{{ student.marks_obtained }}</div>
+                <div class="values exam-price_value">
+                    <a href="generate-report/{{student.id}}" target="_blank">Video Report</a>
+                </div>
+                <!-- <div class="values exam-price_value">
+                    <a href="{{ student.video_report }}" target="_blank">{{ student.video_report }}</a>
+                </div> -->
+                <div class="values exam-image_value">
+                    <a href="http://127.0.0.1:8000/students/audio_report/{{student.id}}">Audio Report</a>
+                </div>
+                {% comment %} <div class="values exam-id_value" id="suspicious">{{ student.suspicoius_activity }}</div> {% endcomment %}
+                <div class="values exam-id_value" id="suspicious">
+                    <a href="http://127.0.0.1:8000/get_audio_report/{{student.id}}">Generate Audio Report</a>
+                </div>
+                
+
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
