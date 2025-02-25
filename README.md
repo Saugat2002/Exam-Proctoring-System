@@ -3,6 +3,7 @@
 cd backend
 
 conda env create -f env.yaml
+
 conda activate proctoring_env
 
 
