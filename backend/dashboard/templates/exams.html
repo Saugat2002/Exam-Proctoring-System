@@ -4,35 +4,41 @@
 
 {% block content %}
     <div class="header">
-        <h1>Exams</h1>
+        <h1><i class="fas fa-book"></i> Exams</h1>
     </div>
 
-    <div class="exam--new">
-        <a>
-            <button class="btn btn--new">New Exam</button>
-        </a>
+    <div class="action-bar">
+        <button class="btn btn--new">
+            <i class="fas fa-plus"></i> New Exam
+        </button>
     </div>
 
     <div class="container exam-container">
-        <div class="exams">
-            <div class="exams-keys">
-                <div class="keys exam-id">ID</div>
-                <div class="keys exam-name">Name</div>
-                <div class="keys exam-description">Total Marks</div>
-                <div class="keys exam-price">Pass Marks</div>
-                <div class="keys exam-image">Duration (minutes)</div>
-                <div class="keys exam-action_value">Date</div>
-            </div>
-            {% for exam in exams %}
-            <div class="exams-values">
-                <div class="values exam-id_value">{{ exam.id }}</div>
-                <div class="values exam-name_value">{{ exam.exam_name }}</div>
-                <div class="values exam-description_value">{{ exam.total_marks }}</div>
-                <div class="values exam-price_value">{{ exam.passing_marks }}</div>
-                <div class="values exam-image_value">{{ exam.duration }}</div>
-                <div class="values exam-action_value">{{ exam.created_at }}</div>
-            </div>
-            {% endfor %}
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-hashtag"></i> ID</th>
+                        <th><i class="fas fa-file-alt"></i> Name</th>
+                        <th><i class="fas fa-star"></i> Total Marks</th>
+                        <th><i class="fas fa-check-circle"></i> Pass Marks</th>
+                        <th><i class="fas fa-clock"></i> Duration</th>
+                        <th><i class="fas fa-calendar"></i> Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for exam in exams %}
+                    <tr>
+                        <td>{{ exam.id }}</td>
+                        <td>{{ exam.exam_name }}</td>
+                        <td>{{ exam.total_marks }}</td>
+                        <td>{{ exam.passing_marks }}</td>
+                        <td>{{ exam.duration }} mins</td>
+                        <td>{{ exam.created_at }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 {% endblock %}

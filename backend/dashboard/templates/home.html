@@ -4,77 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     {% load static %}
-    <link rel="stylesheet" href="{% static "css/admin.css" %}">
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
     <title>Admin View</title>
 </head>
 <body>
-        <!-- SIDEBAR -->
-        <input type="checkbox" class="menu__checkbox" id="sideview-crawl">
-        <div class="side-view">
-            <nav class="admin-view__menu">
-                <div class="admin-view__header">
-                    <h3 class="company-name">
-                        <span>Admin View</span>
-                    </h3>
-                    <div class="menu-icon">
-                        <label for="sideview-crawl" class="menu-bar">
-                                {% comment %} <use xlink:href='{% static "images/hamburger.svg"%}'></use> {% endcomment %}
-                                <img src='{% static "images/hamburger.svg"%}'>
-                        </label>
-                    </div>
+    <input type="checkbox" class="menu__checkbox" id="sideview-crawl">
+    <div class="side-view">
+        <nav class="admin-view__menu">
+            <div class="admin-view__header">
+                <h3 class="company-name">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Admin View</span>
+                </h3>
+                <div class="menu-icon">
+                    <label for="sideview-crawl" class="menu-bar">
+                        <i class="fas fa-bars"></i>
+                    </label>
                 </div>
-                <div class="user-profile">
-                    <img src="{% static "images/dash_icon.png"%}" alt="admin-picture">
-                    <h3 class="admin-name">
-                        <span>Admin</span>
-                    </h3>
-                </div>
-                <ul class="side-nav">
-                    <li class="side-nav__active">
-                        <a href="http://127.0.0.1:8000/">
-                            <svg>
-                                <use xlink:href='./icons.svg#icon-home'></use>
-                            </svg>
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li class="side-nav__exams">
-                        <a href="http://127.0.0.1:8000/exams">
-                            <svg>
-                                <use xlink:href='./icons.svg#icon-package'></use>
-                            </svg>
-                            <span>Exams</span>
-                        </a>
-                    </li>
-                    <li class="side-nav__users">
-                        <a href="http://127.0.0.1:8000/students">
-                            <svg>
-                                <use xlink:href='./icons.svg#icon-user'></use>
-                            </svg>
-                            <span>Students</span>
-                        </a>
-                    </li>
-        
-                    <li class="side-nav__account">
-                        <a href="http://127.0.0.1:8000/logout">
-                            <svg>
-                                <use xlink:href='./icons.svg#icon-settings'></use>
-                            </svg>
-                            <span>Logout</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+            </div>
+            <ul class="side-nav">
+                <li class="side-nav__item {% if request.path == '/' %}active{% endif %}">
+                    <a href="/">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="side-nav__item {% if 'exams' in request.path %}active{% endif %}">
+                    <a href="/exams">
+                        <i class="fas fa-book"></i>
+                        <span>Exams</span>
+                    </a>
+                </li>
+                <li class="side-nav__item {% if 'students' in request.path %}active{% endif %}">
+                    <a href="/students">
+                        <i class="fas fa-users"></i>
+                        <span>Students</span>
+                    </a>
+                </li>
+                <li class="side-nav__item">
+                    <a href="/logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
-         <!-- MAIN CONTENT -->
-        <main class="main main-content">
-            {% block content %}
-            <!-- Child templates will insert content here -->
-            {% endblock %}
-        </main>
-    
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
 </body>
 </html>

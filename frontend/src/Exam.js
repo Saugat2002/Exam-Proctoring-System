@@ -387,15 +387,17 @@ function Exam() {
       {showFullScreenAlert && (
         <div className="modal-overlay">
           <div className="modal">
-            <p className="warning-text">
-              <strong style={{ color: 'red' }}>
+            <div className="warning-text">
+              <i className="fas fa-exclamation-triangle"></i>
+              <strong>
                 Warning: You have exited full-screen mode. Please return to full-screen mode immediately!
               </strong>
-            </p>
+            </div>
             <div className="modal-buttons">
               {showFullScreenButton && (
                 <button onClick={handleFullScreenButtonClick} className="fullscreen-button">
-                  Full-Screen
+                  <i className="fas fa-expand"></i>
+                  Enter Full-Screen
                 </button>
               )}
             </div>
@@ -406,13 +408,17 @@ function Exam() {
       {showTabSwitchAlert && (
         <div className="modal-overlay">
           <div className="modal">
-            <p className="warning-text">
-              <strong style={{ color: 'red' }}>
-                Warning: You are not allowed to switch the tab. If you switch tab {switchCount} more time(s), you will be eliminated from the exam!
+            <div className="warning-text">
+              <i className="fas fa-exclamation-circle"></i>
+              <strong>
+                Warning: You are not allowed to switch tabs. If you switch tabs {switchCount} more time(s), you will be eliminated from the exam!
               </strong>
-            </p>
+            </div>
             <div className="modal-buttons">
-              <button onClick={() => setShowTabSwitchAlert(false)}>OK</button>
+              <button onClick={() => setShowTabSwitchAlert(false)} className="fullscreen-button">
+                <i className="fas fa-check"></i>
+                Understood
+              </button>
             </div>
           </div>
         </div>
@@ -421,10 +427,18 @@ function Exam() {
       {timeUpAlert && (
         <div className="modal-overlay">
           <div className="modal">
-            <p className="warning-text">
-              <strong style={{ color: 'red' }}>Time is up!</strong>
-            </p>
-            <button onClick={timeUpSubmit}>Submit Quiz</button>
+            <div className="warning-text" style={{ background: '#FEF3C7', borderColor: '#FDE68A' }}>
+              <i className="fas fa-clock" style={{ color: '#D97706' }}></i>
+              <strong style={{ color: '#92400E' }}>
+                Time is up! Your exam will be submitted automatically.
+              </strong>
+            </div>
+            <div className="modal-buttons">
+              <button onClick={timeUpSubmit} className="fullscreen-button">
+                <i className="fas fa-paper-plane"></i>
+                Submit Quiz
+              </button>
+            </div>
           </div>
         </div>
       )}

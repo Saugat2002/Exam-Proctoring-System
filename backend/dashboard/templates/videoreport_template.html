@@ -4,65 +4,345 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <title>Cheating Report for {{ student.username }}</title>
+    <title>Proctoring Report - {{ student.username }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #818cf8;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+            padding: 2rem;
         }
+
+        .report-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            border-radius: 1.2rem;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
         .report-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 3rem;
             text-align: center;
-            margin-bottom: 40px;
+            position: relative;
         }
+
+        .report-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        }
+
+        .report-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .student-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .info-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .report-body {
+            padding: 2rem;
+        }
+
         .activity-group {
-            margin-bottom: 20px;
+            background: var(--bg-primary);
+            border-radius: 0.8rem;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
+
         .activity-group h2 {
-            color: #333;
-            text-align: left;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 1.5rem 2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
+
+        .activity-group h2 i {
+            color: var(--primary-color);
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+        }
+
         .activity {
-            margin: 10px 0;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 0.8rem;
+            transition: all 0.3s ease;
         }
-        .activity img {
-            min-width: 640px;
-            max-height: 480px;
-            height: auto;
-            display: block;
+
+        .activity:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
         }
+
+        .activity-header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
         .timestamp {
-            font-size: 0.9em;
-            color: #666;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .timestamp i {
+            font-size: 1rem;
+            color: var(--primary-color);
+        }
+
+        .activity img {
+            width: 100%;
+            height: 300px; /* Fixed height */
+            object-fit: cover; /* Maintain aspect ratio */
+            border-radius: 0.8rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .activity img:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        /* Modal for image preview */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .report-header {
+                padding: 2rem;
+            }
+
+            .report-header h1 {
+                font-size: 2rem;
+            }
+
+            .student-info {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .activities-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .activity img {
+                height: 250px;
+            }
         }
     </style>
 </head>
 <body>
-
-    <div class="report-header">
-        <h1>Proctoring Report</h1>
-        <p><strong>Student:</strong> {{ student.username }}</p>
-        <p><strong>Email:</strong> {{ student.email }}</p>
-        <p><strong>Report Date:</strong> {{ timestamp|date:"F d, Y" }}</p>
-    </div>
-
-    <div class="report-body">
-        {% if grouped_activities %}
-    {% for activity_type, activities in grouped_activities.items %}
-    <div class="activity-group">
-        <h2>{{ activity_type }}</h2>
-        {% for activity in activities %}
-        <div class="activity">
-            <p><strong>Detected on:</strong> {{ activity.timestamp|date:"Y-m-d H:i:s" }}</p>
-            <img src={% static 'suspicious_activities' %}/{{student.email}}/{{activity.screenshot}}>
-            <p class="timestamp">{{ activity.timestamp|date:"H:i:s" }}</p>
+    <div class="report-container">
+        <div class="report-header">
+            <h1>Proctoring Report</h1>
         </div>
-        {% endfor %}
-    </div>
-    {% endfor %}
-{% else %}
-    <p>No suspicious activities found for this student.</p>
-{% endif %}
 
+        <div class="student-info">
+            <div class="info-item">
+                <i class="fas fa-user"></i>
+                <span class="info-label">Student</span>
+                <span class="info-value">{{ student.username }}</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <span class="info-label">Email</span>
+                <span class="info-value">{{ student.email }}</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-calendar"></i>
+                <span class="info-label">Report Date</span>
+                <span class="info-value">{{ timestamp|date:"F d, Y" }}</span>
+            </div>
+        </div>
+
+        <div class="report-body">
+            {% if grouped_activities %}
+                {% for activity_type, activities in grouped_activities.items %}
+                <div class="activity-group">
+                    <h2>
+                        <i class="fas {% if 'Face' in activity_type %}fa-user-secret
+                                    {% elif 'Multiple' in activity_type %}fa-users
+                                    {% elif 'Phone' in activity_type %}fa-mobile-alt
+                                    {% elif 'Tab' in activity_type %}fa-window-restore
+                                    {% else %}fa-exclamation-triangle{% endif %}">
+                        </i>
+                        {{ activity_type }}
+                    </h2>
+                    <div class="activities-grid">
+                        {% for activity in activities %}
+                        <div class="activity">
+                            <div class="activity-header">
+                                <span class="timestamp">
+                                    <i class="fas fa-clock"></i>
+                                    {{ activity.timestamp|date:"Y-m-d H:i:s" }}
+                                </span>
+                            </div>
+                            <img src="{% static 'suspicious_activities' %}/{{student.email}}/{{activity.screenshot}}" 
+                                 alt="Suspicious activity screenshot"
+                                 loading="lazy"
+                                 onclick="openModal(this.src)">
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="activity-group">
+                    <h2><i class="fas fa-check-circle"></i> No Suspicious Activities</h2>
+                    <div class="activity">
+                        <p style="text-align: center; color: var(--text-secondary); padding: 2rem;">
+                            No suspicious activities were detected during this session.
+                        </p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
     </div>
 
+    <!-- Modal for image preview -->
+    <div class="modal" id="imageModal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img id="modalImage" src="" alt="Full size image">
+    </div>
+
+    <script>
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'flex';
+            modalImg.src = imgSrc;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Close modal with escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>

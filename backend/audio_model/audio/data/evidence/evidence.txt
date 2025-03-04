@@ -1,16 +1,68 @@
 Speaker SPEAKER_00:
-  Start: 0.03s, End: 0.47s
-  Transcript:  you
+  Start: 3.05s, End: 4.89s
+  Transcript:  Start by
 
 Speaker SPEAKER_00:
-  Start: 1.03s, End: 2.24s
-  Transcript:  Hello, hello, hello.
+  Start: 7.02s, End: 14.80s
+  Transcript: Hello please teach me answer of question number 1, send in Discord.
 
-Speaker SPEAKER_01:
-  Start: 4.52s, End: 7.69s
-  Transcript:  Hello hello hello. Can you send me the answer to Discord?
+Speaker SPEAKER_00:
+  Start: 17.18s, End: 18.69s
+  Transcript:  You're going in and it's the phone that's there.
 
-Speaker SPEAKER_02:
-  Start: 8.15s, End: 9.21s
-  Transcript:  Thank you.
+Speaker SPEAKER_00:
+  Start: 20.48s, End: 21.82s
+  Transcript:  at 3.00pm.
+
+Speaker SPEAKER_00:
+  Start: 24.18s, End: 25.58s
+  Transcript:  on the Manchester guidebook.
+
+Speaker SPEAKER_00:
+  Start: 27.17s, End: 28.03s
+  Transcript:  at Derigaya.
+
+Speaker SPEAKER_00:
+  Start: 29.70s, End: 31.91s
+  Transcript:  Then, I'll do another work for this area.
+
+Speaker SPEAKER_00:
+  Start: 33.51s, End: 36.21s
+  Transcript:  Right one and left 10k on the right.
+
+Speaker SPEAKER_00:
+  Start: 37.75s, End: 38.81s
+  Transcript:  Elef me, Górdia.
+
+Speaker SPEAKER_00:
+  Start: 40.18s, End: 40.46s
+  Transcript:  up.
+
+Speaker SPEAKER_00:
+  Start: 41.93s, End: 43.11s
+  Transcript:  Hopp, value, go to range.
+
+Speaker SPEAKER_00:
+  Start: 44.06s, End: 44.75s
+  Transcript:  down.
+
+Speaker SPEAKER_00:
+  Start: 48.29s, End: 49.68s
+  Transcript:  test on Jaliliteo.
+
+Speaker SPEAKER_00:
+  Start: 50.71s, End: 51.47s
+  Transcript:  I need next.
+
+Speaker SPEAKER_00:
+  Start: 53.58s, End: 54.91s
+  Transcript:  We'll send out the group of the real.
+
+Speaker SPEAKER_00:
+  Start: 57.37s, End: 58.05s
+  Transcript:  You're right.
+
+Speaker SPEAKER_00:
+  Start: 59.50s, End: 60.48s
+  Transcript: Logout to the rest of the world.
 

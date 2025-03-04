@@ -2,32 +2,32 @@
 
 {% block content %}
 <div class="header">
-    <h1>Welcome back, Admin</h1>
+    <h1><i class="fas fa-tachometer-alt"></i> Welcome back, Admin</h1>
     <p id="tagline">Seamless Exam Security, Right in Your Browser.</p>
 </div>
 
 <div class="overview-cards">
     <div class="card exam-card">
-        <div class="title">
-            <h2>Exams</h2>
+        <div class="card-icon">
+            <i class="fas fa-book"></i>
         </div>
-        <span class="content exam-content">
-            <div class="number">
-                <h4>{{ exams }}</h4>
-            </div>
-        </span>
+        <div class="title">
+            <h2>Total Exams</h2>
+        </div>
+        <div class="number">
+            <h4>{{ exams }}</h4>
+        </div>
     </div>
     <div class="card user-card">
-        <div class="title">
-            <h2>Students</h2>
+        <div class="card-icon">
+            <i class="fas fa-users"></i>
         </div>
-        <span class="content user-content">
-            <div class="number">
-                <h4>{{ students }}</h4>
-            </div>
-        </span>
+        <div class="title">
+            <h2>Total Students</h2>
+        </div>
+        <div class="number">
+            <h4>{{ students }}</h4>
+        </div>
     </div>
-    
 </div>
-
 {% endblock %}
