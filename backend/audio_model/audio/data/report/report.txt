@@ -1,7 +1,4 @@
-Report on C:\Users\atuls\OneDrive\Desktop\final\backend\audio_model\audio/data/report\report.txt
+Report on /home/saugat2002/Desktop/COMPENG/Minor/Final/Exam-Proctoring-System/backend/audio_model/audio/data/report/report.txt
 Cheating Keywords detected:
+Answer: 1
 Discord: 1
-Answers: 1
-Cheat: 1
-Answer: 2
-Chatgpt: 1

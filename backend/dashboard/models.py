@@ -22,7 +22,7 @@ class Student(BaseModel):
     username = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=100)
-    exam_given = models.CharField(max_length=100, blank=True, null=True, default="Fuse Entrance")
+    exam_given = models.CharField(max_length=100, blank=True, null=True, default="Test Entrance")
     suspicoius_activity = models.BooleanField(default=False)
     marks_obtained = models.IntegerField(default=0)
     video_report = models.URLField(max_length=500, blank=True, null=True)

@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
                 ('username', models.CharField(max_length=100)),
                 ('email', models.EmailField(max_length=254, unique=True)),
                 ('password', models.CharField(max_length=100)),
-                ('exam_given', models.CharField(blank=True, default='Fuse Entrance', max_length=100, null=True)),
+                ('exam_given', models.CharField(blank=True, default='Test Entrance', max_length=100, null=True)),
                 ('suspicoius_activity', models.BooleanField(default=False)),
                 ('marks_obtained', models.IntegerField(default=0)),
                 ('video_report', models.URLField(blank=True, max_length=500, null=True)),

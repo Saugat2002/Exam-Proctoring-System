@@ -92,8 +92,12 @@ def save_suspicious_activity(image, activity_type, id):
     fs = FileSystemStorage(location=os.path.dirname(file_path))
     
     try:
-        filename = fs.save(file_path, ContentFile(img_io))
+        # filename = fs.save(file_path, ContentFile(img_io))
         # file_url = fs.url(os.path.join(relative_path, filename))
+        base_filename = os.path.basename(file_path)
+        filename = fs.save(base_filename, ContentFile(img_io))
+        full_saved_path = os.path.join(fs.location, filename)
+        print(f"File saved successfully at: {full_saved_path}")
     except Exception as e:
         print(f"Error saving file: {e}")
         return
