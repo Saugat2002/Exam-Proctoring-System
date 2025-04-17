@@ -1,0 +1,48 @@
+Speaker SPEAKER_03:
+  Start: 0.03s, End: 10.98s
+  Transcript:  So in the string interest exam now, this video will be recorded and if it's moving in the stairs into something, it will go viral.
+
+Speaker SPEAKER_00:
+  Start: 0.96s, End: 1.82s
+  Transcript:  So I need another.
+
+Speaker SPEAKER_02:
+  Start: 10.98s, End: 11.10s
+  Transcript:  Thank you.
+
+Speaker SPEAKER_02:
+  Start: 11.37s, End: 11.46s
+  Transcript:  Thank you.
+
+Speaker SPEAKER_02:
+  Start: 11.47s, End: 11.52s
+  Transcript:  you
+
+Speaker SPEAKER_02:
+  Start: 11.98s, End: 12.03s
+  Transcript:  you
+
+Speaker SPEAKER_02:
+  Start: 12.48s, End: 12.64s
+  Transcript:  Thank you.
+
+Speaker SPEAKER_02:
+  Start: 14.51s, End: 17.48s
+  Transcript:  and also more like one detail so we don't miss.
+
+Speaker SPEAKER_02:
+  Start: 17.82s, End: 18.05s
+  Transcript:  Thank you.
+
+Speaker SPEAKER_00:
+  Start: 18.69s, End: 23.54s
+  Transcript:  And there are multiple persons, then it will so add multiple persons.
+
+Speaker SPEAKER_01:
+  Start: 27.82s, End: 30.27s
+  Transcript:  I'm glad to be here.
+
+Speaker SPEAKER_01:
+  Start: 30.66s, End: 32.97s
+  Transcript:  We can just slow down.
+

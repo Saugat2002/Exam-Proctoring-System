@@ -1,7 +1,3 @@
-Report on /home/saugat2002/Desktop/COMPENG/Minor/Final/Exam-Proctoring-System/backend/audio_model/audio/data/report/report.txt
+Report on /mnt/mypartition/Projects/Exam-Proctoring-System/backend/audio_model/audio/data/report/report.txt
 Cheating Keywords detected:
-Answer: 1
-Discord: 1
-Phone: 1
-Test: 1
-Group: 1
+Exam: 1

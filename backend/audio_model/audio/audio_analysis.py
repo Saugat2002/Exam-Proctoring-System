@@ -10,7 +10,7 @@ def perform_diarized_transcription(finetuned_pipeline, audio_file, output_file, 
 
 def main():
     MODEL_PATH = "model/segmentation.ckpt"
-    HUGGINGFACE_TOKEN = "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"
+    HUGGINGFACE_TOKEN = "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"
     AUDIO_FILE = "webapp/audio/data/audio_files/output_audio.wav"
     EVIDENCE_FILE = "webapp/audio/data/evidence/evidence.txt"
     REPORT_FILE = "webapp/audio/data/evidence/report.txt"

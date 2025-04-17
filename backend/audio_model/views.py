@@ -14,14 +14,23 @@ from manage import base_dir
 from dashboard.models import Student
 
 def perform_diarized_transcription(finetuned_pipeline, audio_file, output_file, asr_pipeline):
+    # try:
+    #     diarized_transcription(finetuned_pipeline, audio_file, output_file, asr_pipeline)
+    # except Exception as e:
+    #     print(f"An error occurred during diarized transcription: {e}")
     try:
+        # Ensure the directory exists
+        os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    
+        # Perform diarized transcription
         diarized_transcription(finetuned_pipeline, audio_file, output_file, asr_pipeline)
     except Exception as e:
         print(f"An error occurred during diarized transcription: {e}")
 
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "audio/model","segmentation.ckpt")
-HUGGINGFACE_TOKEN = "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"
+HUGGINGFACE_TOKEN = "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"
 AUDIO_FILE = os.path.join(BASE_DIR, "audio/data/audio_files","output_audio.wav")#"webapp/audio/data/audio_files/output_audio.wav"
 EVIDENCE_FILE = os.path.join(BASE_DIR, "audio/data/evidence","evidence.txt")
 REPORT_FILE = os.path.join(BASE_DIR, "audio/data/report","report.txt")

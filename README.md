@@ -2,13 +2,10 @@
 
 cd backend
 
-conda env create -f env.yaml
+conda env create -f env.yml
 
-conda activate proctoring_env
+conda activate exam_proctoring_env
 
-
-#### Install dependencies
-pip install -r requirements.txt
 
 #### Run migrations
 python manage.py migrate
@@ -21,6 +18,8 @@ python manage.py runserver
 
 ### Running the frontend
 
+#### Install the required packages
 npm i
 
+#### Start the frontend
 npm run start

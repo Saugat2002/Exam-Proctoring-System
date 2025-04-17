@@ -45,7 +45,6 @@ def initialize_model(model_path, huggingface_token):
 def diarized_transcription(pipeline, audio_file_path, output_path, asr_pipeline): 
     io = Audio(mono='downmix', sample_rate=16000)  # Ensure mono audio with downmix
     waveform, sample_rate = io(audio_file_path)
-
     diarization = pipeline({"waveform": waveform, "sample_rate": sample_rate})
 
     with open(output_path, 'w') as file:

@@ -73,20 +73,22 @@ class LoginView(APIView):
     def post(self, request):
         email = request.data.get('email')
         password = request.data.get('password')
-        
+        print("Trying to Login")
         # Check if user exists
         try:
             student = Student.objects.get(email=email)
         except Student.DoesNotExist:
             return Response(
-                {'message': 'Login failed: User does not exist with entered email.'}
+                {'message': 'Login failed: User does not exist with entered email.'},
+                status= status.HTTP_404_NOT_FOUND
             )
         
         if student.password != password:
             return Response(
-                {'message': 'Login failed: Invalid Credentials! Please try again.'}
+                {'message': 'Login failed: Invalid Credentials! Please try again.'},
+                status=status.HTTP_401_UNAUTHORIZED
             )
-
+        print("Login successful!")
         # If authentication is successful, return user details
         return Response(
             {

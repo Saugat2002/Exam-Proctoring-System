@@ -27,7 +27,9 @@ function Exam() {
   const user = JSON.parse(localStorage.getItem('user'));
   const [questions, setQuestions] = useState([]);
 
-  let countSwitch = 3;
+
+  const countSwitch = useRef(3);
+
   const [switchCount, setSwitchCount] = useState(4);
 
   const timePerQuestion = 60; // Time per question in seconds
@@ -115,7 +117,7 @@ function Exam() {
       if (document.hidden) {
         setShowTabSwitchAlert(true);
         setSwitchCount((prevCount) => prevCount - 1);
-        countSwitch--;
+        countSwitch.current--;
 
         if (countSwitch === 0) {
           handleLogout();
@@ -211,11 +213,11 @@ function Exam() {
     setShowFullScreenButton(true);
   }
 
-  useEffect(() => {
-    // Calculate and set the timer based on the number of questions
-    const totalQuestions = questions.length;
-    setTimer(totalQuestions * timePerQuestion);
-  }, [questions.length]);
+  // useEffect(() => {
+  //   // Calculate and set the timer based on the number of questions
+  //   const totalQuestions = questions.length;
+  //   setTimer(totalQuestions * timePerQuestion);
+  // }, [questions.length]);
 
   const handleNextClick = () => {
     if (currentQuestionIndex < questions.length - 1) {
